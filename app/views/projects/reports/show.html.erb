@@ -5,6 +5,11 @@
       <h2 class="text-center border-bottom fw-bold mt-4"><%= @report.title %>.</h2>
       <div class="mt-4">
         <p class="text-muted text-center"><%= @report.description %></p>
+        <div>
+          <% @report.files.each do |file| %>
+            <%= image_tag file.variant(resize: "400x400") %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

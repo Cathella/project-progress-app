@@ -12,6 +12,10 @@
 
   <body>
     <div class="container">
+      <% if notice %>
+        <p class="alert alert-info text-center" role="alert"><%= notice %></p>
+      <% end %>
+
       <%= yield %>
     </div>
   </body>
