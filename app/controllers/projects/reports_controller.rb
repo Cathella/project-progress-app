@@ -22,6 +22,6 @@ class Projects::ReportsController < ApplicationController
   end
 
   def report_params
-    params.require(:report).permit(:title, :status, :description, :comment)
+    params.require(:report).permit(:title, :status, :description, :comment, files: [])
   end
 end
