@@ -4,11 +4,19 @@
       <div class="bg-light py-4 ps-5">
         <h3 class="fw-bold w-75 mt-5">Project:<br><br>
         <span class="text-muted"><%= @project.name %>.</span></h3>
-        <p class="mt-5"><%= link_to "Add Report", {}, class: "btn btn-primary fw-bold shadow" %>
+        <p class="mt-5"><%= link_to "Add Report", new_project_report_path(@project), class: "btn btn-primary fw-bold shadow" %>
       </div>
     </div>
     <div class="col-lg-7 mx-auto">
-      <h5 class="border-bottom pb-2 mb-4 fw-bold">Reports</h5>
+      <h5 class="border-bottom pb-2 mb-4 fw-bold">Project Progress Reports</h5>
+
+      <div>
+        <% @reports.each do |report| %>
+          <span class="bg-light py-1 ps-3 d-block mb-1">
+            <%= link_to report.title, {}, class: "", style: "text-decoration: none" %>
+          </span>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
