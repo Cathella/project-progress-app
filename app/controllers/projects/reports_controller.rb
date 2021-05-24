@@ -1,8 +1,13 @@
 class Projects::ReportsController < ApplicationController
   before_action :set_project
+  before_action :set_report, only: [:show]
 
   def new
     @report = Report.new
+  end
+
+  def show
+    # @report = Report.find(params[:id])
   end
   
   def create
@@ -19,6 +24,10 @@ class Projects::ReportsController < ApplicationController
 
   def set_project
     @project = Project.find(params[:project_id])
+  end
+
+  def set_report
+    @report = Report.find(params[:id])
   end
 
   def report_params

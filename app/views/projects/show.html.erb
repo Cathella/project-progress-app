@@ -10,17 +10,14 @@
     <div class="col-lg-7 mx-auto">
       <h5 class="border-bottom pb-2 mb-4 fw-bold">Project Progress Reports</h5>
 
-      <div>
-        <% @reports.each do |report| %>
-          <span class="bg-light py-1 ps-3 d-block mb-1">
-            <section class="d-flex justify-content-between align-items-center">
-              <%= link_to report.title, {}, class: "", style: "text-decoration: none" %>
-              <small><%= report.files.count %> Attachments</small>
-              <small class="me-3 text-danger">Not Approved</small>
-            </section>
-          </span>
-        <% end %>
-      </div>
+      <% @project.reports.each do |report| %>
+        <span class="bg-light py-1 ps-3 d-block mb-1">
+          <section class="d-flex justify-content-between align-items-center">
+            <a href="/projects/<%= @project.id %>/reports/<%= report.id %>"><%= report.title %></a>
+            <small class="me-3 text-danger">Not Seen</small>
+          </section>
+        </span>
+      <% end %>
     </div>
   </div>
 </div>

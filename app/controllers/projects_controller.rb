@@ -6,7 +6,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @reports = @project.reports.all
   end
 
   def new
