@@ -8,7 +8,7 @@
         <p class="mt-5"><%= link_to "Add Report", new_project_report_path(@project), class: "btn btn-primary fw-bold shadow" %>
       </div>
     </div>
-    <div class="col-lg-7 mx-auto">
+    <div class="col-lg-8 mx-auto">
       <h5 class="border-bottom pb-2 my-4 fw-bold">Progress Reports</h5>
 
       <% @reports.each do |report| %>
@@ -19,8 +19,16 @@
             </a>
             <span>
               <small class="me-4 text-muted"><%= report.files.count %> files</small>
-              <small class="me-3 text-muted">Added: <%= local_time_ago(report.created_at) %></small>
-              <small class="me-3 text-danger">Not Seen</small>
+              <small class="me-3 text-muted"><%= local_time_ago(report.created_at) %></small>
+              <% if report.comment? %>
+                <small class="me-3 text-success fw-bold">Seen</small>
+              <% else %>
+                <small class="me-3 text-danger fw-bold">Not Seen</small>
+              <% end %>
+              <small class="me-3">
+                <a href="/projects/<%= @project.id %>/reports/<%= report.id %>/edit">Edit</a>
+              </small>
+              <small class="me-3"><%= link_to "Delete", {}, class: "text-danger" %></small>
             </span>
           </section>
         </span>

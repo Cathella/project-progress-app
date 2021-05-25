@@ -1,0 +1,26 @@
+<div class="py-5">
+  <div class="row">
+    <div class="col-lg-5 mx-auto">
+      <p> <%= link_to "Back to Project", @project, class: "text-muted" %></p>
+      <h2 class="mt-5 mb-4 fw-bold text-center">Edit Report</h2>
+
+      <%= form_for [@project, @report] do |form| %>
+        <div class="form-group mb-3">
+          <%= form.text_field :title, placeholder: "Report title", class: "form-control py-2" %>
+        </div>
+        <div class="form-group mb-3">
+          <%= form.text_area :description, rows: 8, placeholder: "Report brief...", class: "form-control py-2" %>
+        </div>
+        <div class="form-group mb-3">
+          <%= form.file_field :files, multiple: true, placeholder: "Add files", class: "form-control py-2" %>
+        </div>
+        <div class="form-group mb-3">
+          <%= form.text_area :comment, rows: 6, placeholder: "Leave a Comment...", class: "form-control py-2" %>
+        </div>
+        <div class="form-group">
+          <%= form.submit "Submit Report", class: "form-control py-2 shadow btn btn-primary fw-bold" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

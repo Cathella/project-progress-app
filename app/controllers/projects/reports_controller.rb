@@ -1,13 +1,12 @@
 class Projects::ReportsController < ApplicationController
   before_action :set_project
-  before_action :set_report, only: [:show]
+  before_action :set_report, only: [:show, :edit, :update]
 
   def new
     @report = Report.new
   end
 
   def show
-    # @report = Report.find(params[:id])
   end
   
   def create
@@ -17,6 +16,17 @@ class Projects::ReportsController < ApplicationController
       redirect_to project_path(@project), notice: "Successfully Added!"
     else
       redirect_to @project, notice: "Unable to add report!"
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @report.update(report_params)
+      redirect_to @project, notice: "Report successfully updatedUpdated!"
+    else
+      redirect_to @project, notice: "Unable to update report!"
     end
   end
   

@@ -5,7 +5,8 @@
       <h2 class="text-center border-bottom fw-bold mt-4"><%= @report.title %>.</h2>
       <div class="mt-4">
         <p class="text-muted"><%= @report.description %></p>
-        <div>
+        <div class="mb-4 border-bottom pb-4">
+          <p class="border-bottom mb-3 py-2">Report Files</p>
           <% @report.files.each do |file| %>
             <% if file.variable? %>
               <%= link_to image_tag(file.variant(resize: "100x100")), file %>
@@ -18,6 +19,12 @@
             <% end %>
           <% end %>
         </div>
+        <% if @report.comment? %>
+          <p class="border-bottom mb-3 py-2">Instructor Comment</p>
+          <div class="p-3 alert alert-info"><%= @report.comment %></div>
+        <% else %>
+          <%= link_to "Please Leave a Comment" %>
+        <% end %>
       </div>
     </div>
   </div>
