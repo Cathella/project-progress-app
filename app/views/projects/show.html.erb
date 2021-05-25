@@ -1,4 +1,4 @@
-<div class="py-5">
+<div class="py-5 height">
   <div class="row">
     <div class="col-lg-4">
       <div class="bg-light py-4 ps-5">
@@ -21,7 +21,7 @@
             </a>
             <span>
               <small class="me-4 text-muted"><%= report.files.count %> files</small>
-              <small class="me-3 text-muted"><%= local_time_ago(report.created_at) %></small>
+              <small class="me-3 text-muted"><%= local_time(report.created_at) %></small>
               <% if report.comment? %>
                 <small class="me-3 text-success fw-bold">Seen</small>
               <% else %>
