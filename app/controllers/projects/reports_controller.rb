@@ -1,6 +1,6 @@
 class Projects::ReportsController < ApplicationController
   before_action :set_project
-  before_action :set_report, only: [:show, :edit, :update]
+  before_action :set_report, only: [:show, :edit, :update, :destroy]
 
   def new
     @report = Report.new
@@ -24,9 +24,16 @@ class Projects::ReportsController < ApplicationController
 
   def update
     if @report.update(report_params)
-      redirect_to @project, notice: "Report successfully updatedUpdated!"
+      redirect_to @project, notice: "Report successfully Updated!"
     else
       redirect_to @project, notice: "Unable to update report!"
+    end
+  end
+
+  def destroy
+    @report.destroy
+    respond_to do |format|
+      format.html { redirect_to @project, notice: "Report has been deleted!" }
     end
   end
   
