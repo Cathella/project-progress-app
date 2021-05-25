@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProjectProgressApp</title>
+    <title>Project Progress App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,25 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <nav class="d-flex justify-content-end align-items-center mt-4">
+        <%= link_to "Project", projects_path, class: "me-5 text-muted" %>
+        <% if user_signed_in? %>
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "text-muted" %>
+        <% else %>
+          <%= link_to "Login", new_user_session_path, class: "btn btn-secondary px-3" %>
+        <% end %>
+      </nav>
+
+      <% if notice %>
+        <div class="alert alert-info text-center" role="alert"><%= notice %></div>
+      <% end %>
+
+      <%= yield %>
+
+      <footer class="border-top text-center py-3 text-muted">
+        <small>Were Henry &copy; 2021.</small>
+      </footer>
+    </div>
   </body>
 </html>

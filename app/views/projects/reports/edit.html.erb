@@ -1,0 +1,37 @@
+<div class="py-5">
+  <div class="row">
+    <div class="col-lg-6 mx-auto">
+      <p> <%= link_to "Back to Project", @project, class: "text-muted" %></p>
+      <% if user_signed_in? %>
+      <h2 class="mt-5 mb-4 fw-bold text-center">Edit Report</h2>
+      <% end %>
+
+      <%= form_for [@project, @report] do |form| %>
+        <% if user_signed_in? %>
+          <div class="form-group mb-3">
+            <%= form.text_field :title, placeholder: "Report title", class: "form-control py-2" %>
+          </div>
+          <div class="form-group mb-3">
+            <%= form.text_area :description, rows: 10, placeholder: "Report brief...", class: "form-control py-2" %>
+          </div>
+          <div class="form-group mb-3">
+            <%= form.file_field :files, multiple: true, placeholder: "Add files", class: "form-control py-2" %>
+          </div>
+        <% end %>
+        <div class="form-group mb-3 mt-5">
+          <%= form.label "Comment:", class: "fw-bold mb-3" %>
+          <%= form.text_area :comment, rows: 5, placeholder: "Leave a Comment...", class: "form-control py-2" %>
+        </div>
+        <% if user_signed_in? %>
+        <div class="form-group">
+          <%= form.submit "Submit Report", class: "form-control py-2 shadow btn btn-primary fw-bold" %>
+        </div>
+        <% else %>
+          <div class="form-group">
+          <%= form.submit "Add Comment", class: "form-control py-2 shadow btn btn-primary fw-bold" %>
+        </div>
+        <% end %>  
+      <% end %>
+    </div>
+  </div>
+</div>
