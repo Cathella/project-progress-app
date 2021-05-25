@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, except: %i[ index create ]
+  before_action :set_project, except: %i[ index create new ]
 
   def index
     @projects = Project.all
@@ -14,6 +14,23 @@ class ProjectsController < ApplicationController
   end
 
   def create
+    @project = Project.new(project_params)
+    if @project.save
+      redirect_to project_path(@project), notice: "Project Added!"
+    else
+      redirect_to @project, notice: "Failed to add project!"
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @project.update(project_params)
+      redirect_to @project, notice: "Project Updated!"
+    else
+      redirect_to projects_path, notice: "Failed to update project!"
+    end
   end
 
   private
