@@ -5,7 +5,9 @@
         <h3 class="fw-bold w-75 mt-5">Project:<br><br>
         <span class="text-muted fs-5"><%= @project.name %>.</span>
         </h3>
-        <p class="mt-5"><%= link_to "Add Report", new_project_report_path(@project), class: "btn btn-primary fw-bold shadow" %>
+        <% if user_signed_in? %>
+          <p class="mt-5"><%= link_to "Add Report", new_project_report_path(@project), class: "btn btn-primary fw-bold shadow" %>
+        <% end %>
       </div>
     </div>
     <div class="col-lg-7 mx-auto">

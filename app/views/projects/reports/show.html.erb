@@ -3,10 +3,12 @@
     <div class="col-lg-7 mx-auto">
       <div class="d-flex align-items-center justify-content-between">
         <%= link_to "Back to project", @project, class: "text-muted" %>
-        <span>
-          <small class="me-3"><%= link_to "Edit Report", edit_project_report_path(@project) %></small>
-          <small><%= link_to "Delete Report", project_report_path(@project), method: :delete, class: "text-danger" %></small>
-        </span>
+        <% if user_signed_in? %>
+          <span>
+            <small class="me-3"><%= link_to "Edit Report", edit_project_report_path(@project) %></small>
+            <small><%= link_to "Delete Report", project_report_path(@project), method: :delete, class: "text-danger" %></small>
+          </span>
+        <% end %>
       </div>
       <h2 class="text-center border-bottom fw-bold mt-5"><%= @report.title %>.</h2>
       <div class="mt-4">
