@@ -13,7 +13,7 @@
   <body>
     <div class="container">
       <nav class="d-flex justify-content-end align-items-center mt-4">
-        <%= link_to "Project", projects_path, class: "me-5 text-muted" %>
+        <%= link_to "Projects", projects_path, class: "me-5 text-muted" %>
         <% if user_signed_in? %>
           <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "text-muted" %>
         <% else %>
@@ -28,7 +28,7 @@
       <%= yield %>
 
       <footer class="border-top text-center py-3 text-muted">
-        <small>Were Henry &copy; 2021.</small>
+        <small>&copy; 2021. Project Progress Reports - Were Henry</small>
       </footer>
     </div>
   </body>
