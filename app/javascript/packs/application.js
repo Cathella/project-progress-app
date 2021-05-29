@@ -13,3 +13,6 @@ Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
 LocalTime.start();
+
+require("trix")
+require("@rails/actiontext")

@@ -12,6 +12,7 @@ class Projects::ReportsController < ApplicationController
   def create
     @report = @project.reports.new report_params
     if @report.save
+      @report.send_notification!
       redirect_to project_path(@project), notice: "Successfully Added!"
     else
       redirect_to @project, notice: "Unable to add report!"

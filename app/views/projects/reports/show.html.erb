@@ -27,9 +27,12 @@
             <% end %>
           <% end %>
         </div>
-        <p class="border-bottom mb-3 py-2">Supervisor Comments</p>
+        <p class="border-bottom mb-3 py-2">Supervisor Comment</p>
         <% if @report.comment? %>
           <div class="p-3 alert alert-info"><%= @report.comment %></div>
+          <small>
+            <%= link_to "Edit comment", edit_project_report_path(@project), class: "mt-n5" %>
+          </small>
         <% else %>
           <%= link_to "Please Leave a Comment", edit_project_report_path(@project) %>
         <% end %>
