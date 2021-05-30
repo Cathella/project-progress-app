@@ -9,8 +9,12 @@
             </section>
           </div>
         <% elsif current_instructor %>
-          <%= link_to "Projects", projects_path, class: "text-muted me-4" %>
-          <%= link_to "Sign out", destroy_instructor_session_path, method: :delete, class: "text-muted" %>
+          <div class="d-flex justify-content-between">
+            <span class="text-muted">Welcome, Instructor!</span>
+            <section>
+              <%= link_to "Sign out", destroy_instructor_session_path, method: :delete, class: "text-muted" %>
+            </section>
+          </div>
         <% else %>
           <%= link_to "Login", new_user_session_path, class: "btn btn-secondary px-3" %>
           <%= link_to "Instructor login", new_instructor_session_path, class: "ms-3 text-dark"%>
