@@ -1,24 +1,40 @@
-# README
+# Project Progress Reports App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## The Application Structure
 
-Things you may want to cover:
+```
+User (Model)
 
-* Ruby version
+- email:string
+- password:string
+- full_name:string
 
-* System dependencies
+- has_many :projects
+- has_many :reports
 
-* Configuration
+Instructor (Model)
 
-* Database creation
+- email:string
+- password:string
+- full_name:string
 
-* Database initialization
+Project (Model)
 
-* How to run the test suite
+- name:string
+- user_id:integer
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
+- has_many :reports
 
-* Deployment instructions
+Report (Model)
 
-* ...
+- title:string
+- description:text
+- comment:text
+- files(attachments)
+- user_id:integer
+- project_id:integer
+
+- belongs_to :user
+- belongs_to :project
+```
