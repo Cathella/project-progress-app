@@ -9,7 +9,10 @@
             <span class="bg-light py-1 px-2 d-block mt-1"><%= link_to project.name, project %></span>
           <% end %>
         <% else %>
-          <p class="text-center text-muted bg-light py-5 rounded">You don't have any projects yet. Start by creating one<br/><br/> <%= link_to "Add Project" %></p>
+          <p class="text-center text-muted bg-light py-5 rounded">
+            You don't have any projects yet. Start by creating one<br/><br/> 
+            <%= link_to "Add Project", new_project_path %>
+          </p>
         <% end %>
       </div>
     </div>
