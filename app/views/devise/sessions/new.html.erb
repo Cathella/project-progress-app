@@ -1,6 +1,8 @@
 <div class="row py-5">
   <div class="col-lg-4 mx-auto">
-    <h2 class="text-center mb-4 mt-5">Log in</h2>
+    <section class="d-flex justify-content-center mt-5 mb-5">
+      <span class="text-capitalize text-white bg-dark px-2 py-1 rounded"><%= resource_name %> Login</span>
+    </section>
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field mt-5">
