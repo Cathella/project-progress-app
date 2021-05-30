@@ -16,8 +16,10 @@
             </section>
           </div>
         <% else %>
-          <%= link_to "Login", new_user_session_path, class: "btn btn-secondary px-3" %>
-          <%= link_to "Instructor login", new_instructor_session_path, class: "ms-3 text-dark"%>
+          <div class="d-flex justify-content-end align-items-center">
+            <%= link_to "Login", new_user_session_path, class: "btn btn-secondary px-3" %>
+            <%= link_to "Instructor login", new_instructor_session_path, class: "ms-3 text-dark"%>
+          </div>
         <% end %>
   </div>
 </nav>
