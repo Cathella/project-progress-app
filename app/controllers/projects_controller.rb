@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
   before_action :set_project, except: %i[ index create new ]
 
   def index
+    # @user_projects = current_user.projects
     @projects = Project.all
   end
 
@@ -15,6 +16,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @project.user_id = current_user.id
     if @project.save
       redirect_to project_path(@project), notice: "Project Added!"
     else

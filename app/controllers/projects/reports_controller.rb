@@ -11,6 +11,7 @@ class Projects::ReportsController < ApplicationController
   
   def create
     @report = @project.reports.new report_params
+    @report.user_id = current_user.id
     if @report.save
       @report.send_notification!
       redirect_to project_path(@project), notice: "Successfully Added!"

@@ -1,11 +1,17 @@
-<div class="row py-5">
+<div class="row py-5 height">
   <div class="col-lg-4 mx-auto">
-    <h2 class="text-center mb-4 mt-5">Sign up</h2>
+    <section class="d-flex justify-content-center mt-5 mb-5">
+      <span class="text-capitalize text-white bg-dark px-2 py-1 rounded"><%= resource_name %> Registration</span>
+    </section>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
       <div class="field mt-5">
+        <%= f.text_field :full_name, placeholder: "Full Name", class: "form-control py-2" %>
+      </div>
+
+      <div class="field mt-3">
         <%= f.email_field :email, autocomplete: "email", placeholder: "Email", class: "form-control py-2" %>
       </div>
 

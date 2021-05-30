@@ -1,0 +1,25 @@
+<nav class="mb-5 py-3 shadow-sm">
+  <div class="container">
+        <% if current_user %>
+          <div class="d-flex justify-content-between">
+            <span class="text-muted">Welcome, <%= current_user.full_name %>!</span>
+            <section>
+              <%= link_to "Projects", projects_path, class: "text-muted me-4"%>
+              <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "text-muted" %>
+            </section>
+          </div>
+        <% elsif current_instructor %>
+          <div class="d-flex justify-content-between">
+            <span class="text-muted">Welcome, Instructor!</span>
+            <section>
+              <%= link_to "Sign out", destroy_instructor_session_path, method: :delete, class: "text-muted" %>
+            </section>
+          </div>
+        <% else %>
+          <div class="d-flex justify-content-end align-items-center">
+            <%= link_to "Login", new_user_session_path, class: "btn btn-secondary px-3" %>
+            <%= link_to "Instructor login", new_instructor_session_path, class: "ms-3 text-dark"%>
+          </div>
+        <% end %>
+  </div>
+</nav>

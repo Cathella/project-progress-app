@@ -1,5 +1,7 @@
 class Report < ApplicationRecord
   belongs_to :project
+  belongs_to :user
+  
   has_many_attached :files
   has_rich_text :description
 

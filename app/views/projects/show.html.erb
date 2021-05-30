@@ -15,21 +15,25 @@
       <h5 class="border-bottom pb-2 my-4 fw-bold">Progress Reports</h5>
 
       <ol class="list-group list-group-numbered list-group-flush">
-      <% @reports.each do |report| %>
-        <li class="list-group-item d-flex">
-          <a href="/projects/<%= @project.id %>/reports/<%= report.id %>" class="ms-2 me-5">
-            <%= report.title %>
-          </a>
-          <span class="float-end d-block">
-              <small class="me-4 text-muted"><%= report.files.count %> files</small>
-              <small class="me-3 text-muted"><%= local_time(report.created_at) %></small>
-              <% if report.comment? %>
-                <small class="me-3 text-success fw-bold">Seen</small>
-              <% else %>
-                <small class="me-3 text-danger fw-bold">Not Seen</small>
-              <% end %>
-          </span>
-        </li>
+      <% if @reports.present? %>
+        <% @reports.each do |report| %>
+          <li class="list-group-item d-flex">
+            <a href="/projects/<%= @project.id %>/reports/<%= report.id %>" class="ms-2 me-5">
+              <%= report.title %>
+            </a>
+            <span class="">
+                <small class="me-4 text-muted"><%= report.files.count %> files</small>
+                <small class="me-3 text-muted"><%= local_time(report.created_at) %></small>
+                <% if report.comment? %>
+                  <small class="me-3 text-success fw-bold">Seen</small>
+                <% else %>
+                  <small class="me-3 text-danger fw-bold">Not Seen</small>
+                <% end %>
+            </span>
+          </li>
+        <% end %>
+      <% else %>
+        <p class="text-center rounded bg-light py-3">No reports added yet!</p>
       <% end %>
       </ol>
     </div>
