@@ -13,11 +13,15 @@
   <body>
     <div class="container">
       <nav class="d-flex justify-content-end align-items-center mt-4">
-        <% if user_signed_in? %>
+        <% if current_user %>
+          <span class="text-muted me-4"><%= current_user.full_name %></span>
           <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "text-muted" %>
+        <% elsif current_instructor %>
+          <%= link_to "Projects", projects_path, class: "text-muted me-4" %>
+          <%= link_to "Sign out", destroy_instructor_session_path, method: :delete, class: "text-muted" %>
         <% else %>
           <%= link_to "Login", new_user_session_path, class: "btn btn-secondary px-3" %>
-          <%= link_to "Instructor login", new_instructor_session_path, class: "ms-3"%>
+          <%= link_to "Instructor login", new_instructor_session_path, class: "ms-3 text-dark"%>
         <% end %>
       </nav>
 

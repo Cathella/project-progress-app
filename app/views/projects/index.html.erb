@@ -1,11 +1,15 @@
 <div class="py-5 height">
   <div class="row">
     <div class="col-lg-8 mx-auto">
-      <h1 class="fw-bold border-bottom pb-2">My Project</h1>
+      <h1 class="fw-bold border-bottom pb-2">Projects</h1>
 
       <div class="mt-3">
-        <% @projects.each do |project| %>
-          <span class="bg-light py-1 px-2 d-block mt-1"><%= link_to project.name, project %></span>
+        <% if @projects.present? %>
+          <% @projects.each do |project| %>
+            <span class="bg-light py-1 px-2 d-block mt-1"><%= link_to project.name, project %></span>
+          <% end %>
+        <% else %>
+          <p class="text-center text-muted bg-light py-5 rounded">You don't have any projects yet. Start by creating one<br/><br/> <%= link_to "Add Project" %></p>
         <% end %>
       </div>
     </div>

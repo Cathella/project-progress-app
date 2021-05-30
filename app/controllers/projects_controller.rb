@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_action :set_project, except: %i[ index create new ]
 
   def index
-    @projects = Project.all
+    @projects = current_user.projects
   end
 
   def show
