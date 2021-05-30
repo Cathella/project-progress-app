@@ -68,18 +68,21 @@ ActiveRecord::Schema.define(version: 2021_05_30_045415) do
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "reports", force: :cascade do |t|
     t.string "title"
-    t.string "status"
     t.text "comment"
     t.bigint "project_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["project_id"], name: "index_reports_on_project_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
