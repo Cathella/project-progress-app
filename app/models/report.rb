@@ -8,7 +8,7 @@ class Report < ApplicationRecord
   validates :title, :description, :files, presence: true
 
   def send_notification!
-    users = ["werehenry@gmail.com", "ncathie214@gmail.com"]
+    users = ["werehenry2@gmail.com", "ncathie214@gmail.com"]
 
     users.each do |user|
       NotificationMailer.report_notification(user, self).deliver_later

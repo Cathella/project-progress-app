@@ -1,6 +1,6 @@
 # Project Progress Reports App
 
-## The Application Structure
+### The Application Structure
 
 ```
 User (Model)

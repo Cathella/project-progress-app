@@ -21,6 +21,7 @@
 # Ignore uploaded files in development.
 /storage/*
 !/storage/.keep
+/config/secrets/*
 
 /public/assets
 .byebug_history
@@ -34,3 +35,6 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore application configuration
+/config/application.yml
