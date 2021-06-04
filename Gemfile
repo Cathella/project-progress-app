@@ -63,3 +63,4 @@ gem 'record_tag_helper', '~> 1.0', '>= 1.0.1'
 gem 'bootstrap', '~> 5.0.0.beta3'
 gem 'ransack', '~> 2.4', '>= 2.4.2'
 gem 'local_time', '~> 2.1'
+gem "figaro"
