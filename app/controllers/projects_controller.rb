@@ -35,6 +35,13 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def destroy
+    @project.destroy
+    respond_to do |format|
+      format.html { redirect_to projects_path, notice: "Project Deleted!" }
+    end
+  end
+
   private
 
   def set_project
