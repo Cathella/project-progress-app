@@ -15,15 +15,17 @@
         <p class="text-muted"><%= @report.description %></p>
         <div class="mb-4 border-bottom pb-4">
           <p class="border-bottom mb-3 py-2">Report Files</p>
-          <% @report.files.each do |file| %>
-            <% if file.variable? %>
-              <%= link_to image_tag(file.variant(resize: "100x100")), file %>
-            <% elsif file.previewable? %>
-              <%= link_to image_tag(file.preview(resize: "100x100")), rails_blob_path(file, disposition: :attachment) %>
-            <% elsif file.image? %>
-              <%= link_to image_tag(file, width: 100), file %>
-            <% else %>
-              <%= link_to file.filename, rails_blob_path(file, disposition: :attachment) %>
+          <% if @report.files[:file].present? %>
+            <% @report.files.each do |file| %>
+              <% if file.variable? %>
+                <%= link_to image_tag(file.variant(resize: "100x100")), file %>
+              <% elsif file.previewable? %>
+                <%= link_to image_tag(file.preview(resize: "100x100")), rails_blob_url(file, disposition: :attachment) %>
+              <% elsif file.image? %>
+                <%= link_to image_tag(file, width: 100), file %>
+              <% else %>
+                <%= link_to file.filename, rails_blob_url(file, disposition: :attachment) %>
+              <% end %>
             <% end %>
           <% end %>
         </div>
