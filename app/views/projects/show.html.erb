@@ -6,7 +6,10 @@
         <span class="text-muted fs-5"><%= @project.name %>.</span>
         </h3>
         <% if user_signed_in? %>
-          <p><%= link_to "Edit Project", edit_project_path(@project) %></p>
+          <div class="d-flex">
+            <p><%= link_to "Edit Project", edit_project_path(@project) %></p>
+            <p><%= link_to "Delete Project", @project, method: :delete, class: "text-danger ms-4" %></p>
+          </div>
           <p class="mt-5"><%= link_to "Add Report", new_project_report_path(@project), class: "btn btn-primary fw-bold shadow" %>
         <% end %>
       </div>
