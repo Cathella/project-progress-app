@@ -10,7 +10,7 @@
           </div>
         <% elsif current_instructor %>
           <div class="d-flex justify-content-between">
-            <span class="text-muted">Welcome, Instructor!</span>
+            <span class="text-muted">Welcome, <%= current_instructor.full_name %>!</span>
             <section>
               <%= link_to "Sign out", destroy_instructor_session_path, method: :delete, class: "text-muted" %>
             </section>
